@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>testLoop</title>
+	<style type="text/css">
+		#images {
+			position: relative;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			height: 250px;
+			width: 300px;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<div id="rotator">
+		<div id="images">
+			<img src="http://img2.wikia.nocookie.net/__cb20141116144915/logopedia/images/f/f4/Chevrolet_logo-2.png" alt="chevy">
+			<img src="http://tdsmotorsports.net/main/paintshop%20tools/tds%20decals/f/decals/ford-logo.png" alt="ford">
+			<img src="http://www.carpict.website/wp-content/uploads/2015/07/honda-logo-png-white-urejmloe0.png" alt="honda">
+			<img src="http://charlesmilander.com/media/23695120/logox-medium.png" alt="tesla">
+			<img src="https://lh4.googleusercontent.com/-b2wTsQyce5E/UW8iQ7wJ9qI/AAAAAAAAANY/X0LkBiDU18s/w979-h979/porsche%2Blogo.png" alt="porsche">
+			<img src="http://www.logoping.co.uk/blog/wp-content/uploads/2014/10/Toyota-logo.jpg" alt="toyota">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			var slideNum = 0;
+			var slideCount = 0;
+
+			var slides = $('#images img');
+
+			slides.eq(slideNum).show();
+
+			var sliderTimer = setInterval(function() {
+			
+				slides.eq(slideNum).fadeOut();
+
+				slideNum++;
+
+				if(slideNum >= slides.length) {
+				  slideNum = 0;
+				}
+
+				slides.eq(slideNum).fadeIn(1500, function() {
+					slideCount++;
+					console.log(slideCount);
+				});
+			}, 1500);
+
+		});
+
+	</script>
+</body>
+</html>
